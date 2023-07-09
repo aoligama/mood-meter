@@ -17,4 +17,12 @@ export const styles = StyleSheet.create({
   cardContent: {
     alignItems: 'center',
   },
+  buttonSpacing: {
+    marginHorizontal: 20,
+  },
+  feelingsHolder: {
+    marginVertical: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
 });

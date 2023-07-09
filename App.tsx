@@ -4,6 +4,7 @@ import { Host } from 'react-native-portalize';
 import { StatusBar } from 'react-native';
 import { AppRoutes } from './src/routes/AppRoutes';
 import { Routes as NavRoutes } from './src/constants/RootStackParams';
+import { MoodProvider } from './src/contexts/MoodProvider';
 
 const Routes = () => {
   return (
@@ -27,7 +28,11 @@ const Routes = () => {
 };
 
 const App = () => {
-  return <Routes />;
+  return (
+    <MoodProvider>
+      <Routes />
+    </MoodProvider>
+  );
 };
 
 export default App;

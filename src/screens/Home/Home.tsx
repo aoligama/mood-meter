@@ -6,11 +6,12 @@ import { color } from '../../theme';
 import { feelings } from '../../utils';
 import { MoodMeter } from '../../components/MoodMeter';
 import { Chip } from '../../components/Chip';
+import { MoodChart } from '../../components/MoodChart';
 import { format } from 'date-fns';
 import useMood from '../../hooks/useMood';
 
 function Home() {
-  const { rate: currRate, setFeelings, feelings: currFeelings, addNewEntry } = useMood();
+  const { rate: currRate, setFeelings, feelings: currFeelings, addNewEntry, chartData } = useMood();
 
   const handleFeelingPress = (value: string) => {
     if (currFeelings.includes(value)) {
@@ -58,6 +59,16 @@ function Home() {
           </View>
         )}
       </Card>
+      {chartData.length > 0 && (
+        <Card>
+          <View style={styles.cardContent}>
+            <Text style={styles.title}>Mood Chart</Text>
+          </View>
+          <View style={styles.chartsHolder}>
+            <MoodChart />
+          </View>
+        </Card>
+      )}
     </ScrollView>
   );
 }

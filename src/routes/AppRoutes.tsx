@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParams, Routes } from '../constants/RootStackParams';
 import { color } from '../theme';
 import { Home } from '../screens/Home';
+import { Header } from '../components/Header';
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -12,7 +13,7 @@ const AppRoutes = () => {
       initialRouteName={Routes.HOME}
       screenOptions={{
         headerShown: true,
-        headerTitle: 'Mood Tracker',
+        headerTitle: () => <Header />,
         headerStyle: {
           backgroundColor: color.primary,
         },

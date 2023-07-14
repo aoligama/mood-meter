@@ -1,8 +1,9 @@
 import { Dimensions } from 'react-native';
+import { IChartData } from '../interfaces';
 
-export const barWidth = {
-  0: Dimensions.get('window').width * 0.9 - 70,
-  1: Dimensions.get('window').width * 0.8 - 70,
-  2: Dimensions.get('window').width * 0.7 - 70,
-  3: Dimensions.get('window').width * 0.6 - 70,
+export const calculateBarWidth = (total: number, chartData: IChartData[]) => {
+  const width = Dimensions.get('window').width * 0.9 - 70;
+  const percentage = (total / chartData[0].total) * 100;
+  const calculatedWidth = (percentage / 100) * width;
+  return calculatedWidth;
 };

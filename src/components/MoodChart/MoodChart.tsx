@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import useMood from '../../hooks/useMood';
 import { BarChart } from '../BarChart';
-import { barWidth } from '../../utils';
+import { calculateBarWidth } from '../../utils';
 
 function MoodChart() {
   const { chartData } = useMood();
@@ -14,7 +14,7 @@ function MoodChart() {
           feeling={data.feeling}
           total={data.total}
           rates={data.rates}
-          width={barWidth[index as keyof typeof barWidth]}
+          width={calculateBarWidth(data.total, chartData)}
         />
       ))}
     </View>
